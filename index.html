@@ -48,6 +48,7 @@
       .welcome-momo { display:block; width:min(31vw,48vh); max-width:72%; max-height:78%; object-fit:contain; }
       .welcome-copy { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#080808; }
       .welcome-copy h1 { margin:0; font-size:clamp(22px,4vh,34px); line-height:1.2; font-weight:700; }
+      .welcome-copy h1:focus { outline:none; }
       .welcome-copy p { margin:10px 0 0; font-size:clamp(18px,3.2vh,27px); line-height:1.25; font-weight:600; }
       .welcome-start { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-width:174px; min-height:54px; margin-top:clamp(18px,3.4vh,28px); padding:10px 20px; border:3px solid var(--navy); border-radius:14px; background:var(--blue); color:#030303; box-shadow:0 3px 0 rgb(6 38 121 / 20%); font-size:clamp(17px,2.7vh,22px); font-weight:700; cursor:pointer; touch-action:manipulation; }
       .welcome-start:hover { background:#36d5ff; }
@@ -56,6 +57,11 @@
       .welcome-start svg { width:22px; height:22px; }
       .slide { position:absolute; inset:0; display:none; overflow:hidden; background:#fff; }
       .slide.active { display:block; }
+      .slide [class*="momo"] { transition:opacity .1s ease-out; }
+      .slide.is-leaving [class*="momo"] { opacity:.35 !important; }
+      @media (prefers-reduced-motion: reduce) {
+        .slide [class*="momo"] { transition-duration:.08s; }
+      }
       .celebration { background:#fff; }
       .celebration-confetti { position:absolute; z-index:1; inset:0; overflow:hidden; pointer-events:none; }
       .confetti-piece { position:absolute; top:-8%; left:var(--x); width:var(--size); height:calc(var(--size) * 1.55); border-radius:2px; background:var(--color); opacity:0; animation:confetti-fall var(--duration) linear var(--delay) infinite; }
@@ -267,20 +273,22 @@
       .route-instruction-thirteen { position:absolute; z-index:3; left:40.5%; top:17%; width:37%; aspect-ratio:256 / 71; margin:0; padding:4px 1.5%; display:flex; justify-content:center; align-items:center; border:5px solid var(--blue); border-radius:25px; background:var(--yellow); color:#030303; text-align:center; font-size:clamp(16px,2.6vw,22px); line-height:1.2; white-space:nowrap; }
       .route-instruction-thirteen strong { font-weight:800; }
       .route-step-fourteen-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 50%; }
-      .route-step-fourteen-momo { position:absolute; z-index:2; left:49.5%; top:44%; width:24.5%; height:44%; object-fit:contain; animation:momo-bus-stop-nudge 1.8s ease-in-out infinite; }
-      @keyframes momo-bus-stop-nudge {
-        0%, 30%, 100% { transform:translateX(0); }
-        15% { transform:translateX(-4%); }
+      .route-step-fourteen-momo { position:absolute; z-index:2; left:51.95%; top:52.8%; width:19.6%; height:35.2%; object-fit:contain; transform-origin:50% 90%; animation:momo-bus-stop-jump 2.2s ease-in-out infinite; }
+      @keyframes momo-bus-stop-jump {
+        0%, 18%, 42%, 100% { transform:translateY(0) rotate(0deg); }
+        9% { transform:translateY(-8%) rotate(-3deg); }
+        30% { transform:translateY(-8%) rotate(3deg); }
+        54% { transform:translateY(0) rotate(0deg); }
       }
       .route-instruction-fourteen { position:absolute; z-index:3; left:27%; top:16%; width:38%; aspect-ratio:256 / 71; margin:0; padding:4px 1.5%; display:flex; justify-content:center; align-items:center; border:5px solid var(--blue); border-radius:25px; background:var(--yellow); color:#030303; text-align:center; font-size:clamp(16px,2.6vw,22px); line-height:1.2; white-space:nowrap; }
       .route-instruction-fourteen strong { font-weight:800; }
-      .route-step-fifteen-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 50%; transform:translateX(9%) scale(1.1); transform-origin:center center; }
-      .route-step-fifteen-momo { position:absolute; z-index:2; left:18%; top:45%; width:24%; height:37%; object-fit:contain; animation:momo-bibik-violet-nudge 2.4s ease-in-out infinite; }
+      .route-step-fifteen-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 50%; transform:translateX(-4%) scale(1.1); transform-origin:center center; }
+      .route-step-fifteen-momo { position:absolute; z-index:2; left:62%; top:45%; width:24%; height:37%; object-fit:contain; animation:momo-bibik-violet-nudge 2.4s ease-in-out infinite; }
       @keyframes momo-bibik-violet-nudge {
-        0%, 10%, 20%, 100% { transform:translateX(0); }
-        5%, 15% { transform:translateX(4%); }
+        0%, 10%, 20%, 100% { transform:translateX(0) scaleX(-1); }
+        5%, 15% { transform:translateX(4%) scaleX(-1); }
       }
-      .route-instruction-fifteen { position:absolute; z-index:3; left:5.5%; top:28.5%; width:37%; aspect-ratio:256 / 71; margin:0; padding:4px 1.5%; display:grid; grid-template-rows:repeat(2,auto); align-content:center; justify-items:center; border:5px solid var(--blue); border-radius:25px; background:var(--yellow); color:#030303; text-align:center; font-size:clamp(16px,2.6vw,22px); line-height:1.2; }
+      .route-instruction-fifteen { position:absolute; z-index:3; left:60%; top:28.5%; width:37%; aspect-ratio:256 / 71; margin:0; padding:4px 1.5%; display:grid; grid-template-rows:repeat(2,auto); align-content:center; justify-items:center; border:5px solid var(--blue); border-radius:25px; background:var(--yellow); color:#030303; text-align:center; font-size:clamp(16px,2.6vw,22px); line-height:1.2; }
       .route-instruction-fifteen span { display:block; white-space:nowrap; }
       .route-instruction-fifteen strong { font-weight:800; }
       .route-step-sixteen-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 50%; }
@@ -403,6 +411,22 @@
         .book { margin:auto; }
         body { display:grid; place-items:center; }
       }
+      @media (orientation:landscape) and (max-height:600px) and (pointer:coarse) {
+        /* Use the whole landscape phone viewport so route pages stay readable. */
+        .book { width:100vw; height:100dvh; max-height:none; aspect-ratio:auto; border:0; border-radius:0; box-shadow:none; }
+        .control { min-height:48px; padding:6px 14px; border-width:2px; }
+        .route-instruction-four { left:57%; width:34%; }
+        .route-step-four-momo { left:60%; top:48%; width:22%; height:32%; animation-name:momo-tap-card-phone; }
+        .route-instruction-nine { left:53%; width:38%; }
+        .route-instruction-eleven { left:52%; width:39%; }
+        .route-instruction-twelve { left:52%; width:39%; }
+        .shortest-card:focus-visible { outline:none; }
+      }
+      @keyframes momo-tap-card-phone {
+        0%, 18%, 100% { transform:translate(0,0) scaleX(-1) rotate(0deg); }
+        43%, 62% { transform:translate(-36%,12%) scaleX(-1) rotate(7deg); }
+        86% { transform:translate(0,0) scaleX(-1) rotate(0deg); }
+      }
       @media (prefers-reduced-motion:reduce) { .confetti-piece,.celebration-momo { animation:none!important; } }
       @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
     </style>
@@ -500,7 +524,7 @@
       </section>
       <section class="slide route-step-nine" aria-label="Step 8: Walk straight to the McCANN building">
         <img class="route-step-nine-photo" src="assets/route-page-9-photo.jpg" alt="A person and child walk along the covered walkway toward the McCANN building." />
-        <img class="route-step-nine-momo" src="assets/momo-route-step-10.png" alt="Momo points along the walkway." />
+        <img class="route-step-nine-momo" src="assets/momo-route-step-13.svg" alt="Back view of Momo walking along the walkway." />
         <p class="route-instruction-nine"><span><strong>Walk straight</strong>, you will</span><span>see <strong>McCANN</strong> building</span></p>
       </section>
       <section class="slide route-step-ten" aria-label="Step 9: Walk to the traffic light towards the McCaNN building">
@@ -524,7 +548,7 @@
       </section>
       <section class="slide route-step-fourteen" aria-label="Step 14: You will pass by a bus stop">
         <img class="route-step-fourteen-photo" src="assets/route-page-15-photo.jpg" alt="A covered sidewalk with a bus stop beside the road as a family walks along it." />
-        <img class="route-step-fourteen-momo" src="assets/momo-route-step-14.png" alt="Momo points toward the bus stop." />
+        <img class="route-step-fourteen-momo" src="assets/momo-figma-node-298-760.png" alt="Momo points toward the bus stop." />
         <p class="route-instruction-fourteen">You will&nbsp;<strong>pass by</strong>&nbsp;a&nbsp;<strong>bus stop</strong></p>
       </section>
       <section class="slide route-step-fifteen" aria-label="Step 15: Continue walking straight until you see Bibik Violet">
@@ -595,6 +619,8 @@
         const routeTwoMomo = document.querySelector(".route-step-two-momo");
         const routeThreeMomo = document.querySelector(".route-step-three-momo");
         let current = 0;
+        let transitionBusy = false;
+        let initialized = false;
         slides.forEach((slide, index) => {
           const segment = document.createElement("i");
           if (index === 0) segment.classList.add("done");
@@ -616,11 +642,12 @@
             document.querySelector(".book").setAttribute("aria-busy", "false");
           }
         }, 100);
-        function show(index) {
-          current = Math.max(0, Math.min(slides.length - 1, index));
+        function renderSlide(index) {
+          current = index;
           slides.forEach((slide, i) => {
             const active = i === current;
             slide.classList.toggle("active", active);
+            slide.classList.remove("is-leaving");
             slide.setAttribute("aria-hidden", String(!active));
           });
           if (current === 1 && routeOneMomo) {
@@ -648,6 +675,23 @@
           next.setAttribute("aria-label", current === slides.length - 1 ? "Start again from New Everyday Life, By Design" : current === 0 ? "Start the route" : "Next page");
           announcement.textContent = slides[current].getAttribute("aria-label");
         }
+        function show(index, animate = true) {
+          const target = Math.max(0, Math.min(slides.length - 1, index));
+          if (transitionBusy) return;
+          if (!initialized || !animate || target === current) {
+            initialized = true;
+            renderSlide(target, false);
+            return;
+          }
+
+          transitionBusy = true;
+          const outgoing = slides[current];
+          outgoing.classList.add("is-leaving");
+          window.setTimeout(() => {
+            renderSlide(target);
+            transitionBusy = false;
+          }, 100);
+        }
         function continueFromBranding() {
           if (brandingLeaving || brandScreen.hidden || !loading.classList.contains("done")) return;
           brandingLeaving = true;
@@ -672,7 +716,7 @@
         shortestRoute.addEventListener("click", () => {
           pickerScreen.hidden = true;
           routeUi.hidden = false;
-          show(0);
+          show(0, false);
           next.focus();
         });
         welcomeStartButton.addEventListener("click", () => {
