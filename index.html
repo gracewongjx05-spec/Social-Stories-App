@@ -72,8 +72,8 @@
         100% { transform:translate3d(var(--drift),112vh,0) rotate(var(--turn)); opacity:0; }
       }
       .celebration-content { position:absolute; z-index:2; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:4% 8% 10%; text-align:center; pointer-events:none; }
-      .celebration h1 { max-width:22ch; margin:0; color:var(--navy); font-size:clamp(30px,6.2vh,60px); line-height:1.08; font-weight:800; letter-spacing:-.025em; }
-      .celebration p { margin:12px 0 0; color:#263f7b; font-size:clamp(21px,4.1vh,36px); line-height:1.15; font-weight:700; }
+      .celebration h1 { max-width:none; margin:0; color:var(--navy); font-size:clamp(30px,6.2vh,60px); line-height:1.08; font-weight:800; letter-spacing:-.025em; white-space:nowrap; }
+      .celebration p { align-self:center; margin:12px 0 0; color:#263f7b; font-size:clamp(21px,4.1vh,36px); line-height:1.15; font-weight:700; text-align:center; }
       .celebration-momo { position:relative; top:2.5%; display:block; width:min(35vw,43vh); height:40%; max-height:300px; margin-top:1.5%; object-fit:contain; transform-origin:50% 88%; animation:celebration-hop 1.65s ease-in-out infinite; }
       @keyframes celebration-hop {
         0%, 100% { transform:translateY(0) rotate(0); }
@@ -769,3 +769,4 @@
     </script>
   </body>
 </html>
+
