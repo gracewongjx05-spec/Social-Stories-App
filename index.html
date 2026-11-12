@@ -45,7 +45,12 @@
       @keyframes brand-momo-in { from { opacity:0; transform:translateY(18px) scale(.94); } to { opacity:1; transform:translateY(0) scale(1); } }
       @keyframes brand-prompt-pulse { 0%,100% { opacity:.56; } 50% { opacity:1; } }
       .welcome-screen { position:absolute; z-index:4; inset:0; display:grid; grid-template-columns:1fr 1fr; align-items:center; justify-items:center; gap:3%; padding:6% 9%; background:#fff; }
-      .welcome-momo { display:block; width:min(31vw,48vh); max-width:72%; max-height:78%; object-fit:contain; }
+      .welcome-momo { display:block; width:min(31vw,48vh); max-width:72%; max-height:78%; object-fit:contain; transform-origin:50% 90%; animation:welcome-momo-wave 2.8s ease-in-out infinite; will-change:transform; }
+      @keyframes welcome-momo-wave {
+        0%, 34%, 68%, 100% { transform:translateY(0) rotate(0); }
+        17% { transform:translateY(-4px) rotate(-3deg); }
+        51% { transform:translateY(-4px) rotate(4deg); }
+      }
       .welcome-copy { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#080808; }
       .welcome-copy h1 { margin:0; font-size:clamp(22px,4vh,34px); line-height:1.2; font-weight:700; }
       .welcome-copy h1:focus { outline:none; }
@@ -61,6 +66,7 @@
       .slide.is-leaving [class*="momo"] { opacity:.35 !important; }
       @media (prefers-reduced-motion: reduce) {
         .slide [class*="momo"] { transition-duration:.08s; }
+        .welcome-momo { animation:none; }
       }
       .celebration { background:#fff; }
       .celebration-confetti { position:absolute; z-index:1; inset:0; overflow:hidden; pointer-events:none; }
