@@ -642,7 +642,7 @@
         let loaded = 0;
         let brandingLeaving = false;
         const loader = setInterval(() => {
-          loaded = Math.min(100, loaded + 2);
+          loaded = Math.min(100, loaded + 4);
           loadingFill.style.width = `${loaded}%`;
           loadingProgress.setAttribute("aria-valuenow", String(loaded));
           if (loaded >= 100) {
